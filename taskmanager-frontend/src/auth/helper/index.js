@@ -1,6 +1,7 @@
-const API = process.env.REACT_APP_BACKEND;
+import { API } from "../../backend";
 
 export const signup = (user) => {
+  console.log(API);
   return fetch(`${API}/signup`, {
     method: "POST",
     headers: {

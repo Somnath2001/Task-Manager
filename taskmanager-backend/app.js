@@ -36,7 +36,7 @@ app.use("/api", userRoutes);
 app.use("/api", todoRoutes);
 
 //Port
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 8088;
 
 //starting the server
 app.listen(port, () => {
