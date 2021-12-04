@@ -77,27 +77,23 @@ const UpdateTodo = ({ match }) => {
 
   //success message
   const successMessage = () => (
-    <Container>
-      <Alert
-        variant="success"
-        className="mt-5 text-center"
-        style={{ display: success ? "" : "none" }}
-      >
-        <h5>Todo updated successfully</h5>
-      </Alert>
+    <Container
+      variant="success"
+      className="mt-5 text-center text-success"
+      style={{ display: success ? "" : "none" }}
+    >
+      <h5>Task updated successfully</h5>
     </Container>
   );
 
   //error message
   const errorMessage = () => (
-    <Container>
-      <Alert
-        variant="danger"
-        className="mt-5 text-center"
-        style={{ display: error ? "" : "none" }}
-      >
-        <h5>{error}</h5>
-      </Alert>
+    <Container
+      variant="danger"
+      className="mt-5 text-center"
+      style={{ display: error ? "" : "none" }}
+    >
+      <h5>{error}</h5>
     </Container>
   );
 
@@ -107,17 +103,9 @@ const UpdateTodo = ({ match }) => {
       <div>
         <Container>
           <Row className="justify-content-md-center">
-            <Col
-              md={6}
-              style={{
-                borderStyle: "solid",
-                borderWidth: "1px",
-                borderColor: "grey",
-              }}
-              className="p-5 m-5"
-            >
+            <Col md={5} className="p-2">
               <Form>
-                <Form.Group className="p-2">
+                <Form.Group className="pt-2">
                   <Form.Control
                     type="name"
                     placeholder="Enter Title"
@@ -126,7 +114,7 @@ const UpdateTodo = ({ match }) => {
                   />
                 </Form.Group>
 
-                <Form.Group className="p-2">
+                <Form.Group className="pt-2">
                   <Form.Control
                     type="name"
                     placeholder="Description"
@@ -134,7 +122,7 @@ const UpdateTodo = ({ match }) => {
                     value={description}
                   />
                 </Form.Group>
-                <Form.Group className="p-2">
+                <Form.Group className="pt-2">
                   <Form.Control
                     as="select"
                     style={{ WebkitAppearance: "menulist" }}
@@ -146,7 +134,7 @@ const UpdateTodo = ({ match }) => {
                     <option>Completed</option>
                   </Form.Control>
                 </Form.Group>
-                <Form.Group className="p-2">
+                <Form.Group className="pt-2">
                   <Form.Control
                     as="select"
                     style={{ WebkitAppearance: "menulist" }}
@@ -160,7 +148,7 @@ const UpdateTodo = ({ match }) => {
                 </Form.Group>
                 <Button
                   className="form-control"
-                  variant="primary"
+                  variant="warning"
                   type="submit"
                   style={{
                     marginTop: "10px",

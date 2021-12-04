@@ -6,7 +6,7 @@ import { isAuthenticated, signout } from "../auth/helper";
 
 const currentTab = (history, path) => {
   if (history.location.pathname === path) {
-    return { color: "#000000" };
+    return { color: "rgb(290, 215, 80)" };
   } else {
     return { color: "#FFFFFF" };
   }
@@ -14,7 +14,7 @@ const currentTab = (history, path) => {
 const Menu = ({ history }) => {
   return (
     <div>
-      <nav className="navbar navbar-expand-lg  bg-info">
+      <nav className="navbar navbar-expand-lg  navdesg">
         <div className="container-fluid">
           <a className="navbar-brand text-light" href="/">
             <img
@@ -25,7 +25,7 @@ const Menu = ({ history }) => {
               className="d-inline-block align-text-top"
             />
             <span className="text-light">Task</span>
-            <span className="text-primary">Manager</span>
+            <span className="text-warning">Manager</span>
           </a>
           <button
             className="navbar-toggler"
@@ -86,12 +86,12 @@ const Menu = ({ history }) => {
                     </Link>
                   </li>
 
-                  <i className="bi bi-envelope text-center"></i>
-                  <li className="nav-item ">
+                  {/* <i className="bi bi-envelope text-center text-info"></i> */}
+                  {/* <li className="nav-item ">
                     <Link to="/user/todo" className="nav-link">
                       {isAuthenticated().user.email}
                     </Link>
-                  </li>
+                  </li> */}
 
                   <Link to="/user/create/todo">
                     <i className="bi bi-plus text-light"></i>
@@ -111,7 +111,7 @@ const Menu = ({ history }) => {
                       Signout
                     </span>
                   </li>
-                  <i className="bi bi-person-circle text-center"></i>
+                  <i className="bi bi-person-circle text-center text-info"></i>
                 </Fragment>
               )}
             </ul>

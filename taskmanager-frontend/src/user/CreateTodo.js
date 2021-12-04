@@ -53,26 +53,22 @@ const CreateTodo = () => {
   };
 
   const successMessage = () => (
-    <Container>
-      <Alert
-        variant="success"
-        className="mt-5 text-center"
-        style={{ display: success ? "" : "none" }}
-      >
-        <h5>Todo created successfully</h5>
-      </Alert>
+    <Container
+      variant="success"
+      className="mt-5 text-center text-info"
+      style={{ display: success ? "" : "none" }}
+    >
+      <h5>Task created successfully</h5>
     </Container>
   );
 
   const errorMessage = () => {
-    <Container>
-      <Alert
-        variant="danger"
-        className="mt-5 text-center"
-        style={{ display: error ? "" : "none" }}
-      >
-        <h5>{error}</h5>
-      </Alert>
+    <Container
+      variant="danger"
+      className="mt-5 text-center"
+      style={{ display: error ? "" : "none" }}
+    >
+      <h5>{error}</h5>
     </Container>;
   };
 
@@ -81,17 +77,9 @@ const CreateTodo = () => {
       <div>
         <Container>
           <Row className="justify-content-md-center">
-            <Col
-              md={6}
-              style={{
-                borderStyle: "solid",
-                borderWidth: "1px",
-                borderColor: "grey",
-              }}
-              className="p-4 m-3"
-            >
+            <Col md={6} style={{}} className="p-4 m-3">
               <Form>
-                <Form.Group className="p-2">
+                <Form.Group className="pt-2">
                   <Form.Control
                     type="name"
                     placeholder="Enter Title"
@@ -100,7 +88,7 @@ const CreateTodo = () => {
                   />
                 </Form.Group>
 
-                <Form.Group className="p-2">
+                <Form.Group className="pt-2">
                   <Form.Control
                     type="name"
                     placeholder="Description"
@@ -108,7 +96,7 @@ const CreateTodo = () => {
                     value={description}
                   />
                 </Form.Group>
-                <Form.Group className="p-2">
+                <Form.Group className="pt-2">
                   <Form.Control
                     as="select"
                     style={{ WebkitAppearance: "menulist" }}
@@ -120,7 +108,7 @@ const CreateTodo = () => {
                     <option>Completed</option>
                   </Form.Control>
                 </Form.Group>
-                <Form.Group className="p-2">
+                <Form.Group className="pt-2">
                   <Form.Control
                     as="select"
                     style={{ WebkitAppearance: "menulist" }}
@@ -134,14 +122,14 @@ const CreateTodo = () => {
                 </Form.Group>
                 <Button
                   className="form-control"
-                  variant="primary"
+                  variant="warning"
                   type="submit"
                   style={{
                     marginTop: "10px",
                   }}
                   onClick={onSubmit}
                 >
-                  Create
+                  Create Task
                 </Button>
               </Form>
             </Col>

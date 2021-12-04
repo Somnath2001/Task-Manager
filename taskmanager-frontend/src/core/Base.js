@@ -9,25 +9,21 @@ const Base = ({
   <div>
     <Navbar />
     <div className="container-fluid">
-      <div className="jumbotron  text-white text-center my-4">
-        <h2 className="display-6">{title}</h2>
+      <div
+        className="jumbotron  text-white text-center"
+        style={{ marginTop: "70px" }}
+      >
+        <h2 className="display-6 titletxt">{title}</h2>
         <p className="lead">{description}</p>
       </div>
       <div className={className}>{children}</div>
     </div>
 
-    <footer className="footer">
-      <div className="container-fluid bg-info text-white text-center py-3 d-flex">
-        <h4>Manage your daily task on our platform with an exprience</h4>
-        <button className="btn btn-warning ms-3">Contact Us</button>
+    {/* <footer className="footer">
+      <div className=" footertxt container-fluid">
+        <h4>Manage your daily task here...</h4>
       </div>
-      <div className="container">
-        <span className="text-muted">
-          An Amazing platform for
-          <span className="text-white"> Task management</span>
-        </span>
-      </div>
-    </footer>
+    </footer> */}
   </div>
 );
 

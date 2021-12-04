@@ -56,9 +56,9 @@ const Todo = () => {
   const errorMessage = () => (
     <Container>
       <Alert
-        variant="danger"
-        className="mt-5 text-center"
-        style={{ display: error ? "" : "none" }}
+        variant="light"
+        className="mt-5 text-center text-dark"
+        style={{ display: error ? "" : "none", borderRadius: "11px" }}
       >
         <h5>{error}</h5>
         <h6
@@ -68,7 +68,7 @@ const Todo = () => {
             fontWeight: "bold",
           }}
         >
-          (<Link to="/user/create/todo">Create Here</Link>)
+          <Link to="/user/create/todo">Create Task Here</Link>
         </h6>
       </Alert>
     </Container>
@@ -78,10 +78,8 @@ const Todo = () => {
   const loadingMessage = () => {
     return (
       loading && (
-        <Container>
-          <Alert variant="info" className="mt-5 text-center">
-            <h2>Loading...</h2>
-          </Alert>
+        <Container variant="info" className="mt-5 text-center text-primary">
+          <h2>Loading...</h2>
         </Container>
       )
     );
@@ -90,49 +88,65 @@ const Todo = () => {
   //listing all users todo
   const todoListing = () => {
     return (
-      <div>
-        <Container style={{ marginTop: "30px" }}>
-          <Row>
-            <Col>
-              <h5>Title</h5>
+      <div className="">
+        <Container className="listingcontainer">
+          <Row className="head">
+            <Col className="titlecol">
+              <div>Title</div>
             </Col>
-            <Col>
-              <h4>Description</h4>
+            <Col className="descriptcol">
+              <div>Description</div>
             </Col>
-            <Col>
-              <h4>Status</h4>
+            <Col className="statuscol">
+              <div>Status</div>
             </Col>
-            <Col>
-              <h4>Priority</h4>
+            <Col className="priocol">
+              <div>Priority</div>
             </Col>
-            <Col></Col>
+
+            <Col className="editcol">
+              <div>Edit</div>
+            </Col>
+            <Col className="delcol">
+              <div>Delete</div>
+            </Col>
           </Row>
           {todos.map((todo, index) => {
             return (
               <ListGroup key={index}>
-                <ListGroupItem variant="info" className="mt-3 py-1">
+                <ListGroupItem
+                  variant="light"
+                  className="mt-2 py-0 text-dark text-center scrollmenu"
+                  style={{
+                    borderRadius: "10px",
+                    fontFamily: "serif",
+                    height: "45px",
+                  }}
+                >
                   <Row>
-                    <Col className="mt-1 fs-1">
-                      <h5>{todo.name}</h5>
+                    <Col className="mt-2 name">
+                      <h4>{todo.name}</h4>
                     </Col>
                     <Col>
-                      <p className="fs-5 fw-bold">{todo.description}</p>
+                      <p className="pt-1 " style={{ fontSize: "25px" }}>
+                        {todo.description}
+                      </p>
                     </Col>
-                    <Col>
+                    <Col className="mt-2 ">
                       <h4>{todo.status}</h4>
                     </Col>
-                    <Col>
+                    <Col className="mt-2 ">
                       <h4>{todo.priority}</h4>
                     </Col>
-                    <Col style={{ textAlign: "center" }}>
+                    <Col style={{ marginRight: "3px" }}>
                       <Link to={`/user/update/todo/${todo._id}/${_id}`}>
-                        <i className="bi bi-pencil-square"></i>
+                        <i className="bi bi-pencil-square text-info"></i>
                       </Link>
 
                       <i
-                        className="bi bi-trash"
+                        className="bi bi-trash text-danger"
                         style={{
-                          marginLeft: "30px",
+                          marginLeft: "50%",
                           cursor: "pointer",
                         }}
                         onClick={() => {

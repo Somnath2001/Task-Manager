@@ -45,41 +45,33 @@ const Signin = () => {
   const loadingMessage = () => {
     return (
       loading && (
-        <Container>
-          <Alert variant="info" className="mt-5 text-center">
-            <h2>Loading...</h2>
-          </Alert>
+        <Container className="text-center text-primary">
+          <h4>Loading...</h4>
         </Container>
       )
     );
   };
   const errorMessage = () => (
-    <Container>
-      <Alert
-        variant="danger"
-        className="mt-5 text-center"
-        style={{ display: error ? "" : "none" }}
-      >
-        <h5>{error}</h5>
-      </Alert>
+    <Container
+      variant="danger"
+      className="mt-5 text-center text-danger"
+      style={{ display: error ? "" : "none" }}
+    >
+      <h5>{error}</h5>
     </Container>
   );
+
   const signinForm = () => {
     return (
       <div>
         <Container>
-          <Row className="justify-content-md-center">
-            <Col
-              md={6}
-              style={{
-                borderStyle: "solid",
-                borderWidth: "1px",
-                borderColor: "grey",
-              }}
-              className="p-5"
-            >
+          <Row
+            className="justify-content-md-center"
+            style={{ paddingBottom: "90px" }}
+          >
+            <Col md={5} className="p-2">
               <Form>
-                <Form.Group controlId="formBasicEmail" className="p-2">
+                <Form.Group controlId="formBasicEmail" className="pt-2">
                   <Form.Control
                     type="email"
                     placeholder="Enter email"
@@ -88,7 +80,7 @@ const Signin = () => {
                   />
                 </Form.Group>
 
-                <Form.Group controlId="formBasicPassword" className="p-2">
+                <Form.Group controlId="formBasicPassword" className="pt-3">
                   <Form.Control
                     type="password"
                     placeholder="Password"
@@ -99,11 +91,12 @@ const Signin = () => {
 
                 <Button
                   className="form-control"
-                  variant="info"
+                  variant="warning"
                   type="submit"
                   onClick={onSubmit}
                   style={{
-                    marginTop: "10px",
+                    marginTop: "15px",
+                    backgroundColor: "rgb(280, 200, 15)",
                   }}
                 >
                   Signin
@@ -111,16 +104,16 @@ const Signin = () => {
               </Form>
               <h6
                 style={{
-                  marginTop: "10px",
+                  marginTop: "16px",
                   color: "grey",
                   fontWeight: "bold",
+                  textAlign: "center",
                 }}
               >
-                Don't have an account.Please (
-                <Link to="/signup" className="text-info">
+                Don't have an account.Please <br />
+                <Link to="/signup" className="text-light">
                   Signup Here
                 </Link>
-                )
               </h6>
             </Col>
           </Row>
@@ -129,7 +122,7 @@ const Signin = () => {
     );
   };
   return (
-    <Base title="Signin for User" description="welcome to usersignin page">
+    <Base title="Signin for User" description=" userSignin here...">
       {performRedirect()}
       {loadingMessage()}
       {errorMessage()}

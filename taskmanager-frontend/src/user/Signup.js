@@ -38,27 +38,27 @@ const Signup = () => {
           success: true,
         });
       }
+      if (!data.error) {
+        setTimeout(() => {
+          history.push("/signin");
+        }, 3000);
+      } else {
+        setTimeout(() => {
+          // history.push("/signup");
+          window.location.reload();
+        }, 1000);
+      }
     });
-    setTimeout(() => {
-      history.push("/signin");
-    }, 2000);
   };
+
   const signupForm = () => {
     return (
       <div>
         <Container>
           <Row className="justify-content-md-center">
-            <Col
-              md={6}
-              style={{
-                borderStyle: "solid",
-                borderWidth: "1px",
-                borderColor: "grey",
-              }}
-              className="p-5"
-            >
+            <Col md={5} style={{ paddingBottom: "80px" }}>
               <Form>
-                <Form.Group className="p-2">
+                <Form.Group className="pt-3">
                   <Form.Control
                     type="name"
                     placeholder="Enter First Name"
@@ -66,7 +66,7 @@ const Signup = () => {
                     value={name}
                   />
                 </Form.Group>
-                <Form.Group className="p-2">
+                <Form.Group className="pt-3">
                   <Form.Control
                     type="name"
                     placeholder=" Enter Last Name"
@@ -75,7 +75,7 @@ const Signup = () => {
                   />
                 </Form.Group>
 
-                <Form.Group controlId="formBasicEmail" className="p-2">
+                <Form.Group controlId="formBasicEmail" className="pt-3">
                   <Form.Control
                     type="email"
                     placeholder="Enter Email"
@@ -83,7 +83,7 @@ const Signup = () => {
                     value={email}
                   />
                 </Form.Group>
-                <Form.Group controlId="formBasicPassword" className="p-2">
+                <Form.Group controlId="formBasicPassword" className="pt-3">
                   <Form.Control
                     type="password"
                     placeholder="Enter Password"
@@ -94,11 +94,12 @@ const Signup = () => {
 
                 <Button
                   className="form-control"
-                  variant="info"
                   type="submit"
+                  variant="warning"
                   onClick={onSubmit}
                   style={{
-                    marginTop: "10px",
+                    marginTop: "15px",
+                    backgroundColor: "rgb(280, 200, 15)",
                   }}
                 >
                   Signup
@@ -109,13 +110,13 @@ const Signup = () => {
                   marginTop: "10px",
                   color: "grey",
                   fontWeight: "bold",
+                  textAlign: "center",
                 }}
               >
-                Already have an account.Please (
-                <Link to="/signin" className="text-info">
+                Already have an account.Please <br />
+                <Link to="/signin" className="text-light">
                   Login Here
                 </Link>
-                )
               </h6>
             </Col>
           </Row>
@@ -124,32 +125,24 @@ const Signup = () => {
     );
   };
   const successMessage = () => (
-    <Container>
-      <Alert
-        variant="success"
-        className="mt-5 text-center"
-        style={{ display: success ? "" : "none" }}
-      >
-        <h5>
-          New account was created successfully.Please (
-          <Link to="/signin">Login Here</Link>)
-        </h5>
-      </Alert>
+    <Container
+      className="mt-5 text-center text-success"
+      style={{ display: success ? "" : "none" }}
+    >
+      <h5>New account was created successfully</h5>
     </Container>
   );
   const errorMessage = () => (
-    <Container>
-      <Alert
-        variant="danger"
-        className="mt-5 text-center"
-        style={{ display: error ? "" : "none" }}
-      >
-        <h5>{error}</h5>
-      </Alert>
+    <Container
+      variant="danger"
+      className="mt-5 text-center text-danger"
+      style={{ display: error ? "" : "none" }}
+    >
+      <h5>{error}</h5>
     </Container>
   );
   return (
-    <Base title="Signup for User" description="welcome to usersignup page">
+    <Base title="Signup for User" description="userSignup here...">
       {errorMessage()}
       {successMessage()}
       {signupForm()}
