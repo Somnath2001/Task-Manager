@@ -5,7 +5,7 @@ exports.getTodoById = (req, res, next, id) => {
   Todo.findById(id).exec((err, todo) => {
     if (err) {
       return res.status(400).json({
-        error: "Todo not found",
+        error: "Tasks not found",
       });
     }
     req.todo = todo;
@@ -52,7 +52,7 @@ exports.deleteTodo = (req, res) => {
   todo.remove((err, deletedTodo) => {
     if (err) {
       return res.status(400).json({
-        error: "Failed to delete the todo",
+        error: "Failed to delete the task",
       });
     }
     res.json({
@@ -72,7 +72,7 @@ exports.updateTodo = (req, res) => {
   todo.save((err, updatedTodo) => {
     if (err) {
       return res.status(400).json({
-        error: "Failed to update todo",
+        error: "Failed to update task",
       });
     }
     res.json(updatedTodo);
@@ -84,12 +84,12 @@ exports.getAllTodoByUserId = (req, res) => {
   Todo.find({ userId: req.profile._id }).exec((err, todos) => {
     if (err) {
       return res.status(400).json({
-        error: "NO todos FOUND",
+        error: "NO TASK FOUND",
       });
     }
     if (todos.length === 0) {
       return res.status(400).json({
-        error: "No todos found.",
+        error: "No task found",
       });
     }
     res.json(todos);

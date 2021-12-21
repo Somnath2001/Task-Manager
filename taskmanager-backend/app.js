@@ -31,9 +31,9 @@ app.use(express.json());
 app.use(cookieParser());
 
 //My Routes
-app.use("/api", authRoutes);
-app.use("/api", userRoutes);
-app.use("/api", todoRoutes);
+app.use("/", authRoutes);
+app.use("/", userRoutes);
+app.use("/", todoRoutes);
 
 //Port
 const port = process.env.PORT || 8088;
