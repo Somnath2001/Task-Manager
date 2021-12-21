@@ -1,3 +1,0 @@
-environmental variable
-#Database=
-#SECRET=
