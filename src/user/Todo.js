@@ -68,7 +68,7 @@ const Todo = () => {
             fontWeight: "bold",
           }}
         >
-          <Link to="/user/create/todo">Create Task Here</Link>
+          <Link to="/user/create/todo">Create Todo Here</Link>
         </h6>
       </Alert>
     </Container>
@@ -165,7 +165,7 @@ const Todo = () => {
   };
 
   return (
-    <Base title="Your tasks" description="follow up your tasks">
+    <Base title="Your todos" description="follow up your todos">
       {error ? (
         <div>{errorMessage()}</div>
       ) : (

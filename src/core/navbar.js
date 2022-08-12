@@ -24,7 +24,7 @@ const Menu = ({ history }) => {
               height="30"
               className="d-inline-block align-text-top"
             />
-            <span className="text-light">Task</span>
+            <span className="text-light">Todo</span>
             <span className="text-warning">Manager</span>
           </a>
           <button
@@ -77,12 +77,11 @@ const Menu = ({ history }) => {
                 <Fragment>
                   <li className="nav-item">
                     <Link
-                      className="nav-link text-light"
                       style={currentTab(history, "/user/todo")}
                       className="nav-link"
                       to="/user/todo"
                     >
-                      Tasks
+                      Todos
                     </Link>
                   </li>
 

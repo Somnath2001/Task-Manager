@@ -7,14 +7,13 @@ import Base from "../core/Base";
 const Signup = () => {
   const [values, setValues] = useState({
     name: "",
-    lastName: "",
     email: "",
     password: "",
     error: "",
     success: false,
   });
 
-  const { name, lastName, email, password, error, success } = values;
+  const { name, email, password, error, success } = values;
 
   const handleChange = (name) => (event) => {
     setValues({ ...values, error: false, [name]: event.target.value });
@@ -24,14 +23,13 @@ const Signup = () => {
   const onSubmit = (event) => {
     event.preventDefault();
     setValues({ ...values, error: false });
-    signup({ name, lastName, email, password }).then((data) => {
+    signup({ name, email, password }).then((data) => {
       if (data.error) {
         setValues({ ...values, error: data.error, success: false });
       } else {
         setValues({
           ...values,
           name: "",
-          lastName: "",
           email: "",
           password: "",
           error: "",
@@ -61,19 +59,19 @@ const Signup = () => {
                 <Form.Group className="pt-3">
                   <Form.Control
                     type="name"
-                    placeholder="Enter First Name"
+                    placeholder="Enter Name"
                     onChange={handleChange("name")}
                     value={name}
                   />
                 </Form.Group>
-                <Form.Group className="pt-3">
+                {/* <Form.Group className="pt-3">
                   <Form.Control
                     type="name"
                     placeholder=" Enter Last Name"
                     onChange={handleChange("lastName")}
                     value={lastName}
                   />
-                </Form.Group>
+                </Form.Group> */}
 
                 <Form.Group controlId="formBasicEmail" className="pt-3">
                   <Form.Control

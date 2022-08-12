@@ -58,7 +58,7 @@ const CreateTodo = () => {
       className="mt-5 text-center text-info"
       style={{ display: success ? "" : "none" }}
     >
-      <h5>Task created successfully</h5>
+      <h5>Todo created successfully</h5>
     </Container>
   );
 
@@ -129,7 +129,7 @@ const CreateTodo = () => {
                   }}
                   onClick={onSubmit}
                 >
-                  Create Task
+                  Create Todo
                 </Button>
               </Form>
             </Col>
@@ -140,7 +140,7 @@ const CreateTodo = () => {
   };
 
   return (
-    <Base title="Create your Task Here" description="personalize your task">
+    <Base title="Create your Todo Here" description="personalize your todo">
       {errorMessage()}
       {successMessage()}
       {createTodoForm()}
