@@ -20,6 +20,7 @@ const Signup = () => {
   };
 
   const history = useHistory();
+
   const onSubmit = (event) => {
     event.preventDefault();
     setValues({ ...values, error: false });
@@ -39,11 +40,11 @@ const Signup = () => {
       if (!data.error) {
         setTimeout(() => {
           history.push("/signin");
-        }, 3000);
+        }, 2000);
       } else {
         setTimeout(() => {
-          // history.push("/signup");
-          window.location.reload();
+          history.push("/signup");
+          // window.location.reload();
         }, 1000);
       }
     });
