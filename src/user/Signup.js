@@ -34,7 +34,11 @@ const Signup = () => {
           success: false,
           loading: false,
         });
-        history.push("/");
+
+        setTimeout(() => {
+          window.location.reload();
+          // history.push("/signup");
+        }, 1500);
         // window.location.reload();
       } else {
         setValues({
