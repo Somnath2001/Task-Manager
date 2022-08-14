@@ -52,10 +52,13 @@ const Signup = () => {
         });
       }
     });
-    // setTimeout(() => {
-    //   history.push("/signup");
-    // }, 1000);
   };
+
+  if (success) {
+    setTimeout(() => {
+      history.push("/signin");
+    }, 1300);
+  }
 
   const loadingMessage = () => {
     return (
