@@ -37,16 +37,11 @@ const Signup = () => {
           success: true,
         });
       }
-      if (!data.error) {
-        setTimeout(() => {
-          history.push("/signin");
-        }, 2000);
-      } else {
-        setTimeout(() => {
-          history.push("/signup");
-          // window.location.reload();
-        }, 1000);
-      }
+
+      setTimeout(() => {
+        history.push("/signup");
+        // window.location.reload();
+      }, 1000);
     });
   };
 
