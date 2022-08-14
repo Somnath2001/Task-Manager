@@ -3,6 +3,7 @@ import { Link, useHistory } from "react-router-dom";
 import { signup } from "../auth/helper/index";
 import { Form, Button, Container, Row, Col, Alert } from "react-bootstrap";
 import Base from "../core/Base";
+import { PropagateLoader } from "react-spinners";
 
 const Signup = () => {
   const [values, setValues] = useState({
@@ -11,9 +12,10 @@ const Signup = () => {
     password: "",
     error: "",
     success: false,
+    loading: false,
   });
 
-  const { name, email, password, error, success } = values;
+  const { name, email, password, error, success, loading } = values;
 
   const handleChange = (name) => (event) => {
     setValues({ ...values, error: false, [name]: event.target.value });
@@ -23,10 +25,17 @@ const Signup = () => {
 
   const onSubmit = (event) => {
     event.preventDefault();
-    setValues({ ...values, error: false });
+    setValues({ ...values, error: false, loading: true });
     signup({ name, email, password }).then((data) => {
       if (data.error) {
-        setValues({ ...values, error: data.error, success: false });
+        setValues({
+          ...values,
+          error: data.error,
+          success: false,
+          loading: false,
+        });
+        history.push("/");
+        // window.location.reload();
       } else {
         setValues({
           ...values,
@@ -35,14 +44,23 @@ const Signup = () => {
           password: "",
           error: "",
           success: true,
+          loading: false,
         });
       }
-
-      setTimeout(() => {
-        history.push("/signup");
-        // window.location.reload();
-      }, 1000);
     });
+    // setTimeout(() => {
+    //   history.push("/signup");
+    // }, 1000);
+  };
+
+  const loadingMessage = () => {
+    return (
+      loading && (
+        <Container className="text-center text-primary mb-4">
+          <PropagateLoader size={15} color="rgb(290, 215, 80)" />
+        </Container>
+      )
+    );
   };
 
   const signupForm = () => {
@@ -138,6 +156,7 @@ const Signup = () => {
   return (
     <Base title="Signup for User" description="userSignup here...">
       {errorMessage()}
+      {loadingMessage()}
       {successMessage()}
       {signupForm()}
     </Base>

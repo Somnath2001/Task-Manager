@@ -3,6 +3,7 @@ import { Form, Button, Container, Row, Col, Alert } from "react-bootstrap";
 import { Redirect, Link, useHistory } from "react-router-dom";
 import { signin, authenticate, isAuthenticated } from "../auth/helper/index";
 import Base from "../core/Base";
+import { PropagateLoader } from "react-spinners";
 
 const Signin = () => {
   const [values, setValues] = useState({
@@ -45,8 +46,8 @@ const Signin = () => {
   const loadingMessage = () => {
     return (
       loading && (
-        <Container className="text-center text-primary">
-          <h4>Loading...</h4>
+        <Container className="text-center text-primary mb-4">
+          <PropagateLoader size={15} color="rgb(290, 215, 80)" />
         </Container>
       )
     );
